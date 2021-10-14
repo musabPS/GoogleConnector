@@ -1,6 +1,16 @@
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
+const express =require("express")
+const app = express()
+
+
+app.get("/",function(req,res){
+  res.send("iisjisj");
+})
+
+app.listen(process.env.PORT || 5000);
+module.exports=app
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
@@ -99,7 +109,7 @@ function getNewToken(oAuth2Client, callback) {
 function listMajors(auth) 
 {
     // [START sheets_batch_get_values]
-    let values = [["Tran Internalid4","Tran Number","Item","Item Name","Quantity","Vendor Accept Quantity","Expected Receipt Date"],["22162","PO140154CM","730","6 Drawer Desk","5","2","9/28/2021"],["22162","PO140154CM","731","Blackberry PlayBook","1","2","9/29/2021"],["22162","PO140154CM","816","BLACK SESAME OIL","5","2","9/30/2021"],["22162","PO140154CM","751","Calculators","20","2","10/1/2021"],["22162","PO140154CM","707","Designer Chair","1","2","10/2/2021"],["22162","PO140154CM","702","Custom Cushions","5","2","10/3/2021"],["22162","PO140154CM","726","Drawer Runners","1","2","10/4/2021"],["22162","PO140154CM","739","12 Pack Ball Point Pens","25","2","10/5/2021"],["22162","PO140154CM","654","Custom HP Media Home Server","9","2","10/6/2021"]];
+    let values = [["Tran Internalid5","Tran Number","Item","Item Name","Quantity","Vendor Accept Quantity","Expected Receipt Date"],["22162","PO140154CM","730","6 Drawer Desk","5","2","9/28/2021"],["22162","PO140154CM","731","Blackberry PlayBook","1","2","9/29/2021"],["22162","PO140154CM","816","BLACK SESAME OIL","5","2","9/30/2021"],["22162","PO140154CM","751","Calculators","20","2","10/1/2021"],["22162","PO140154CM","707","Designer Chair","1","2","10/2/2021"],["22162","PO140154CM","702","Custom Cushions","5","2","10/3/2021"],["22162","PO140154CM","726","Drawer Runners","1","2","10/4/2021"],["22162","PO140154CM","739","12 Pack Ball Point Pens","25","2","10/5/2021"],["22162","PO140154CM","654","Custom HP Media Home Server","9","2","10/6/2021"]];
     let range='Sheet1!A1:G100'
     valueInputOption= 'USER_ENTERED'
     const data = [{
